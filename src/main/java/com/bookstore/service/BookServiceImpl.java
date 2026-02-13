@@ -14,10 +14,6 @@ public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;  // ← final поле, без @Autowired
 
-    public BookServiceImpl(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
-
     @Override
     public Book getBookById(Long id) {
         return bookRepository.findById(id)
