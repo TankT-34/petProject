@@ -1,7 +1,9 @@
 package com.bookstore.service;
 
 import com.bookstore.model.Book;
+import java.util.List;
 
 public interface BookService {
-    Book getBookById(Long id);  // Переименовали findById → getBookById
+    Book getBookById(Integer id);
+    List<Book> getAllBooks();
 }

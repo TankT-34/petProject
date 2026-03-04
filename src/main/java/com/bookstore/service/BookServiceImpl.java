@@ -7,16 +7,23 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
-@RequiredArgsConstructor  // ← Lombok создаст конструктор с final полями
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
-    private final BookRepository bookRepository;  // ← final поле, без @Autowired
+    private final BookRepository bookRepository;
 
     @Override
-    public Book getBookById(Long id) {
+    public Book getBookById(Integer id) {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException(id));
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        return bookRepository.findAll();
     }
 }

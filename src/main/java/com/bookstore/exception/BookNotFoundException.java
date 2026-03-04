@@ -1,7 +1,7 @@
 package com.bookstore.exception;
 
 public class BookNotFoundException extends RuntimeException {
-    public BookNotFoundException(Long id) {
+    public BookNotFoundException(Integer id) {
         super("Book not found with id: " + id);
     }
 }
